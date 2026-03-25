@@ -36,22 +36,35 @@ To develop a C program using the static storage class in a function with a param
 #include <stdio.h>
 
 void display(int n)
+
 {
-    static float base = 100.25;
-    printf("%.2f ", base + n);
-    base = base + 100.25;
+
+  static float base = 100.25;
+
+  printf("%.2f ", base + n);
+
+  base = base + 100.25;
+
 }
 
 int main()
+
 {
-    int input, i;
-    scanf("%d", &input);
+
+  int input, i;
+    
+   scanf("%d", &input);
+   
    for(i = 0; i < 5; i++)
-    {
-       display(input);
-    }
+    
+   {
+      
+  display(input);
+    
+   }
 
   return 0;
+
 }
 # Output:
 <img width="890" height="368" alt="image" src="https://github.com/user-attachments/assets/c86d29c2-1f3b-48f1-afc9-1e9b1898d975" />
@@ -104,39 +117,64 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <stdio.h>
 
 int add(int a, int b) { return a + b; }
+
 int subtract(int a, int b) { return a - b; }
+
 int multiply(int a, int b) { return a * b; }
+
 int divide(int a, int b) { return a / b; }
 
 int main()
+
 {
-    int num1, num2, choice, result;
-    int (*operation)(int, int);
+
+  int num1, num2, choice, result;
+
+  int (*operation)(int, int);
 
    printf("Enter two numbers: ");
-    scanf("%d %d", &num1, &num2);
+
+  scanf("%d %d", &num1, &num2);
 
   printf("\n1.Add\n2.Subtract\n3.Multiply\n4.Divide\n");
-    printf("Enter your choice: ");
-    scanf("%d", &choice);
+
+  printf("Enter your choice: ");
+  
+  scanf("%d", &choice);
 
    switch(choice)
-    {
-        case 1: operation = add; break;
-        case 2: operation = subtract; break;
-        case 3: operation = multiply; break;
-        case 4:
-            if(num2 == 0)
-            {
-                printf("Division by zero error!");
-                return 0;
-            }
-            operation = divide;
-            break;
-        default:
-            printf("Invalid choice!");
-            return 0;
-    }
+  
+  {
+        
+  case 1: operation = add; break;
+    
+  case 2: operation = subtract; break;
+    
+  case 3: operation = multiply; break;
+    
+  case 4:
+            
+  if(num2 == 0)
+            
+{
+            
+  printf("Division by zero error!");
+             
+   return 0;
+            
+ }
+            
+  operation = divide;
+            
+  break;
+        
+  default:
+            
+   printf("Invalid choice!");
+            
+   return 0;
+    
+  }
 
    result = operation(num1, num2);
     
