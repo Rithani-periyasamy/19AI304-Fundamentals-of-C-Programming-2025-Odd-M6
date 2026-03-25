@@ -231,35 +231,53 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <stdio.h>
 
 struct emp
+
 {
-    int id;
-    char name[30];
-    float sal;
+ 
+ int id;
+ 
+ char name[30];
+ 
+ float sal;
+
 };
 
 int main()
+
 {
-    struct emp e[3] = {
-        {101, "Ravi", 20000},
-        {102, "Arun", 35000},
-        {103, "Kiran", 30000}
-    };
+    
+  struct emp e[3] = {
+       
+  {101, "Ravi", 20000},
+  
+  {102, "Arun", 35000},
+  
+  {103, "Kiran", 30000}
+    
+};
 
   int i, max = 0;
-
-    
+  
   for(i = 1; i < 3; i++)
-    {
-        if(e[i].sal > e[max].sal)
-        {
-            max = i;
-        }
-    }
+   
+{
+        
+  if(e[i].sal > e[max].sal)
+        
+{
+           
+  max = i;
+      
+}
+    
+ }
 
   printf("Employee with highest salary:\n");
-    printf("ID: %d\nName: %s\nSalary: %.2f",e[max].id, e[max].name, e[max].sal);
+   
+  printf("ID: %d\nName: %s\nSalary: %.2f",e[max].id, e[max].name, e[max].sal);
 
    return 0;
+
 }
 # Output:
 <img width="692" height="362" alt="image" src="https://github.com/user-attachments/assets/6afb5360-65bb-4071-944f-d89dd15ca80a" />
@@ -309,44 +327,63 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <stdio.h>
 
 struct date
+
 {
-    int c_date, c_month, c_year;
-    int b_date, b_month, b_year;
-    int d, m, y;
+  
+  int c_date, c_month, c_year;
+  
+  int b_date, b_month, b_year;
+  
+  int d, m, y;
+
 };
 
 void findAge(struct date *x)
+
 {
-    int month[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    
+  int month[] = {31,28,31,30,31,30,31,31,30,31,30,31};
 
   if(x->b_date > x->c_date)
-    {
-        x->c_date += month[x->c_month - 2];
-        x->c_month--;
-    }
+   
+{
+        
+  x->c_date += month[x->c_month - 2];
+  
+  x->c_month--;
+    
+}
 
   if(x->b_month > x->c_month)
-    {
-        x->c_year--;
-        x->c_month += 12;
-    }
+    
+{
+    
+  x->c_year--;
+  
+   x->c_month += 12;
+   
+}
 
   x->d = x->c_date - x->b_date;
-    x->m = x->c_month - x->b_month;
-    x->y = x->c_year - x->b_year;
+  
+  x->m = x->c_month - x->b_month;
+  
+  x->y = x->c_year - x->b_year;
 }
 
 int main()
+
 {
-    struct date x = {25, 3, 2026,   // current date
+    
+  struct date x = {25, 3, 2026,   // current date
                      20, 1, 2005};  // birth date
 
   findAge(&x);
 
-  printf("Age: %d years %d months %d days",
-           x.y, x.m, x.d);
+  printf("Age: %d years %d months %d days",x.y, x.m, x.d);
 
-  return 0;
+ return 0;
+
 }
 # Output:
 <img width="612" height="302" alt="image" src="https://github.com/user-attachments/assets/98c2f029-bc86-4adc-b88e-ec7db65163e8" />
@@ -389,24 +426,33 @@ Thus, the program was implemented and executed successfully, and the required ou
 #include <stdio.h>
 
 union abc
+
 {
-    int a;
-    char b;
+
+  int a;
+  
+  char b;
+
 };
 
 int main()
+
 {
-    union abc var;
-    union abc *ptr;
+
+  union abc var;
+  
+  union abc *ptr;
 
   ptr = &var;
 
   ptr->a = 90;
 
    printf("Integer value: %d\n", ptr->a);
-    printf("Character value: %c\n", ptr->b);
+    
+  printf("Character value: %c\n", ptr->b);
 
   return 0;
+
 }
 # Output:
 <img width="911" height="320" alt="image" src="https://github.com/user-attachments/assets/75873b1e-54fa-4b33-9034-0f935bad9ee3" />
